@@ -21,6 +21,11 @@ Route::get('/', function () {
     return Inertia::render('Lista');
 });
 
+Route::get('/formulario', function () {
+    return Inertia::render('Formulario');
+});
+
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
