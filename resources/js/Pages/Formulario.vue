@@ -941,7 +941,7 @@ const guardarViaje = () => {
     padding: 8px 22px;
     font-size: 14px;
     font-weight: 600;
-    color: #ffffff; /* CONTRASTE FIX */
+    color: #000000;
     cursor: pointer;
     transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
