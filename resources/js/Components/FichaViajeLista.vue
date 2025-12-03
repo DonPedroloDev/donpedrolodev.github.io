@@ -14,25 +14,16 @@
         <p><span class="font-semibold">Notas:</span> {{ trip.notes }}</p>
 
         <p class="font-semibold my-2">Duración del viaje</p>
-        <p class="mb-2">
-            {{ trip.start_date }} -
-            {{ trip.end_date }}
-        </p>
+        <p class="mb-2">{{ trip.start_date }} - {{ trip.end_date }}</p>
 
         <img
             v-if="trip.activities.length && trip.activities[0].images.length"
             class="w-full h-40 rounded-md object-cover"
-            :src="
-                trip.activities.length
-                    ? trip.activities[0].images.length
-                        ? trip.activities[0].images[0].image_url
-                        : ''
-                    : ''
-            "
-            alt=""
+            :src="trip.activities[0].images[0].image_url"
+            alt="Imagen del viaje"
         />
 
-        <div v-if="trip.activities[0].images[0] == undefined">
+        <div v-else>
             <div
                 class="w-full h-40 rounded-md bg-neutral-400 flex items-center justify-center"
             >
@@ -43,10 +34,7 @@
 </template>
 
 <script setup>
-//import ref
-import { ref } from "vue";
-
-//define props
+// define props correctamente
 defineProps({
     trip: Object,
 });
