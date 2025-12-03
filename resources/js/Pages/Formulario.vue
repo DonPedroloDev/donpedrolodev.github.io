@@ -679,6 +679,7 @@ const guardarViaje = () => {
     font-weight: 600;
 }
 
+/* BOTÓN SWAP (Círculo) */
 .swap-btn {
     position: absolute;
     left: 50%;
@@ -690,6 +691,12 @@ const guardarViaje = () => {
     background: #d4af37;
     border: none;
     cursor: pointer;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.swap-btn:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%, -50%) scale(1.03);
 }
 
 /* AUTOCOMPLETE */
@@ -794,7 +801,6 @@ const guardarViaje = () => {
     cursor: pointer;
 }
 
-/* CARD ACTIVIDAD */
 .activity-card {
     display: grid;
     grid-template-columns: 120px 1fr;
@@ -919,7 +925,7 @@ const guardarViaje = () => {
     display: none;
 }
 
-/* GUARDAR */
+/* BOTÓN GUARDAR */
 .actions-row {
     display: flex;
     justify-content: flex-end;
@@ -935,8 +941,14 @@ const guardarViaje = () => {
     padding: 8px 22px;
     font-size: 14px;
     font-weight: 600;
-    color: #4b5563;
+    color: #ffffff; /* CONTRASTE FIX */
     cursor: pointer;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.save-btn:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
 }
 
 .status-message {
@@ -949,36 +961,6 @@ const guardarViaje = () => {
 
 .status-message.success {
     color: #15803d;
-}
-
-/* HOVER CON SOMBRA (GENERAL, SIN EL CÍRCULO) */
-.help-btn,
-.new-activity-btn,
-.delete-activity-btn,
-.remove-image-btn,
-.save-btn,
-.upload-label {
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.help-btn:hover,
-.new-activity-btn:hover,
-.delete-activity-btn:hover,
-.remove-image-btn:hover,
-.save-btn:hover,
-.upload-label:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    transform: translateY(-1px);
-}
-
-/* HOVER ESPECIAL PARA EL BOTÓN CÍRCULO */
-.swap-btn {
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.swap-btn:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    transform: translate(-50%, -50%) scale(1.03);
 }
 
 /* RESPONSIVE */
