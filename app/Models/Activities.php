@@ -10,13 +10,13 @@ use App\Models\Reminders;
 class Activities extends Model
 {
     public function trip()
-{
-    return $this->belongsTo(Trips::class, 'trip_id');
-}
+    {
+        return $this->belongsTo(Trips::class, 'trip_id');
+    }
 
     public function images()
     {
-        return $this->hasMany(ActivityImages::class, 'activity_id');
+        return $this->hasMany(ActivityImages::class , 'activity_id');
     }
 
     public function reminders()
