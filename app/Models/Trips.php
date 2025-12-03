@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Activity;
+use App\Models\Activities;
 
 class Trips extends Model
 {
-    //relacionar los viajes con el usuario
+    // relacionar los viajes con el usuario
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -16,7 +16,7 @@ class Trips extends Model
 
     public function activities()
     {
-        return $this->hasMany(Activity::class);
+        return $this->hasMany(Activities::class, 'trip_id');
     }
 
     public function down(): void
@@ -24,3 +24,4 @@ class Trips extends Model
         Schema::dropIfExists('trips');
     }
 }
+
