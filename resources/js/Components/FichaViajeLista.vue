@@ -39,15 +39,34 @@
                 <p class="text-center p-10 text-white">Sin imagen disponible</p>
             </div>
         </div>
+
+        <div
+            class="bg-red-500 py-1 px-3 rounded-md text-white inline-block mt-5 cursor-pointer font-semibold"
+            @click="deleteTrip"
+        >
+            <p>Eliminar</p>
+        </div>
     </div>
 </template>
 
 <script setup>
 //import ref
 import { ref } from "vue";
+import axios from "axios";
+import { onMounted } from "vue";
 
 //define props
-defineProps({
+const props = defineProps({
     trip: Object,
 });
+
+const deleteTrip = async () => {
+    try {
+        await axios.delete(`api/trips/${props.trip.id}`);
+    } catch (error) {
+        console.error(error);
+    }
+    // Optionally, you can emit an event to notify the parent component to refresh the trip list
+    emit("tripDeleted", props.trip.id);
+};
 </script>

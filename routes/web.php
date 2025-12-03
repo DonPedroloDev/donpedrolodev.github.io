@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('api')->prefix('api')->group(function () {
     Route::get('/trips', [TripController::class, 'index']);
+    Route::delete('/trips/{id}', [TripController::class, 'destroy']);
 });
 
 require __DIR__.'/auth.php';

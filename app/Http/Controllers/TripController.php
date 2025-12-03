@@ -16,4 +16,17 @@ class TripController extends Controller
             'activities.reminders'
         ])->get();
     }
+
+    public function destroy($id)
+    {
+        $trip = Trips::find($id);
+
+        if (!$trip) {
+            return response()->json(['message' => 'Trip not found'], 404);
+        }
+
+        $trip->delete();
+
+        return response()->json(['message' => 'Trip deleted successfully'], 200);
+    }
 }

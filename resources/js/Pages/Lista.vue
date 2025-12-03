@@ -34,10 +34,15 @@ import { Head, Link } from "@inertiajs/vue3";
 import axios from "axios";
 import { onMounted } from "vue";
 import { ref } from "vue";
+const emit = defineEmits(["tripDeleted"]);
 
 import FichaViajeLista from "@/Components/FichaViajeLista.vue";
 
 const trips = ref([]);
+
+const handleTripDeleted = (deletedTripId) => {
+    trips.value = trips.value.filter((trip) => trip.id !== deletedTripId);
+};
 
 onMounted(async () => {
     trips.value = (await axios.get("/api/trips")).data;
