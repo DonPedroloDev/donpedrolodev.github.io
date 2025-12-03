@@ -7,8 +7,13 @@ use App\Models\Trips;
 
 class TripController extends Controller
 {
-       public function index()
+    public function index()
     {
-        return Trips::all();
+        return Trips::with([
+            'user',
+            'activities',
+            'activities.images',
+            'activities.reminders'
+        ])->get();
     }
 }

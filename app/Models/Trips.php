@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Activities;
+use App\Models\Activity;
 
 class Trips extends Model
 {
@@ -16,7 +16,7 @@ class Trips extends Model
 
     public function activities()
     {
-        return $this->hasMany(Activities::class, 'trip_id');
+        return $this->hasMany(Activity::class);
     }
 
     public function down(): void
