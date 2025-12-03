@@ -443,7 +443,8 @@ const quitarImagen = (activityIndex, imageIndex) => {
 /* FORMATO HORA */
 const formatHora = (hora) => {
     const [hh, mm] = hora.split(":").map(Number);
-    if (isNaN(hh) || isNaN(mm)) return hora;
+    // Usar Number.isNaN en lugar de isNaN
+    if (Number.isNaN(hh) || Number.isNaN(mm)) return hora;
 
     const isPM = hh >= 12;
     const h12 = ((hh + 11) % 12) + 1;
@@ -509,7 +510,11 @@ const guardarViaje = () => {
         return;
     }
 
-    // 4. Todo bien
+    // 4. Validación correcta
+    // o
+    // 4. Listo
+    // 4. OK, sin errores
+
     statusType.value = "success";
     statusMessage.value = "Viaje guardado con éxito.";
 };
