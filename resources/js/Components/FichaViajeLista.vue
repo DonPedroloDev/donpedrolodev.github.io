@@ -20,7 +20,7 @@
             v-if="trip.activities.length && trip.activities[0].images.length"
             class="w-full h-40 rounded-md object-cover"
             :src="trip.activities[0].images[0].image_url"
-            alt="Imagen del viaje"
+            alt="Viaje"
         />
 
         <div v-else>
